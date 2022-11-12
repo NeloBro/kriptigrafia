@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>kript</title>
+    </head>
+    <body>
+        Сложение<br>
+        <input id="plus"><button onclick="plus()">OK</button><br>
+        <input id="anser" value="Ответ:"><br>
+        Умножение<br>
+        <input id="times"><button onclick="times()">OK</button><br>
+        <input id="anser2" value="Ответ:"><br>
+        Возведение в степень<br>
+        Число<input id="number">Степень<input id="stepen"><button onclick="stepen()">OK</button><br>
+        <input id="anser3" value="Ответ:"><br>
+        Модуль<br>
+        <input value="12" id="modul"><button>OK</button>
+        <script>
+            function plus(){
+                var plus = document.getElementById("plus");
+                var primer = eval(plus.value);
+                var modul = eval(document.getElementById("modul").value);
+                if(primer>modul) {
+                    document.getElementById("anser").value = "Ответ: "+primer%modul+" (по модулю "+modul+")";
+                }
+                else {
+                    document.getElementById("anser").value = "Ответ: "+primer;
+                }
+            }
+            function times() {
+                var primer = eval(document.getElementById("times").value);
+                var modul = eval(document.getElementById("modul").value);
+                if (primer > modul) {
+                    if(primer%modul==0) {
+                        document.getElementById("anser2").value = "Ответ: "+document.getElementById("times").value[0]+" (по модулю "+modul+")";
+                    }
+                    else {
+                        document.getElementById("anser2").value = "Ответ: "+primer%modul+" (по модулю "+modul+")";
+                    }
+                }
+                else {
+                    document.getElementById("anser2").value = "Ответ: "+primer;
+                }
+            }
+            function stepen() {
+                var number = document.getElementById("number").value;
+                var stepen = document.getElementById("stepen").value;
+                var modul = document.getElementById("modul").value;
+                if(number**stepen>modul) {
+                    if(number**stepen%modul==0) {
+                        document.getElementById("anser3").value = "Ответ: "+number+" (по модулю "+modul+")";
+                    }
+                    else {
+                        document.getElementById("anser3").value = "Ответ: "+(number**stepen)%modul+" (по модулю "+modul+")";
+                    }
+                }
+                else {
+                    document.getElementById("anser3").value = "Ответ: "+number**stepen;
+                }
+            }
+        </script>
+    </body>
+</html>
